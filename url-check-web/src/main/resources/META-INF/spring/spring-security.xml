@@ -32,6 +32,7 @@
         <sec:csrf />
         <sec:access-denied-handler ref="accessDeniedHandler"/>
         <sec:custom-filter ref="userIdMDCPutFilter" after="ANONYMOUS_FILTER"/>
+        <sec:custom-filter ref="redirectCheckFilter" after="SECURITY_CONTEXT_FILTER" />
         <sec:session-management />
     </sec:http>
     <sec:authentication-manager>
@@ -52,9 +53,13 @@
     	<property name="key" value="${redirect.hmacKey}"/>
     </bean>
     
+    <bean id="redirectCheckFilter" class="org.sample.app.common.RedirectCheckFilter">
+    	<property name="key" value="${redirect.hmacKey}"/>
+    </bean>
+    
     <bean id="authenticationSuccessHandler"
     	class="org.terasoluna.gfw.security.web.redirect.RedirectAuthenticationHandler">
-    	<property name="redirectToRedirectStrategy" ref="signedRedirectStrategy" />
+    	<!-- <property name="redirectToRedirectStrategy" ref="signedRedirectStrategy" />  -->
     </bean>
     	
     <bean id="authenticationFailureHandler"
