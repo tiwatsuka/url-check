@@ -10,5 +10,11 @@ public class DemoController {
 	@RequestMapping
 	public String demo(){
 		return "demo/demo";
-	}  
+	}
+	
+	@RequestMapping("redirect")
+	public String redirect(){
+		return "redirect:/demo";
+	}
+
 }

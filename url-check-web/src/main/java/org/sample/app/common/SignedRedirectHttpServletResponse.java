@@ -29,7 +29,7 @@ public class SignedRedirectHttpServletResponse extends HttpServletResponseWrappe
 		if(!StringUtils.hasLength(sign)){
 			throw new InvalidRedirectException("Sign is missing.");
 		}
-		System.out.println(HmacUtils.hmacSha256Hex(key, location));
+
 		if(!sign.equals(HmacUtils.hmacSha256Hex(key, location))){
 			throw new InvalidRedirectException("Invalid sign.");
 		}
