@@ -8,3 +8,4 @@
 <%@ taglib uri="http://tiles.apache.org/tags-tiles-extras" prefix="tilesx"%>
 <%@ taglib uri="http://terasoluna.org/tags" prefix="t"%>
 <%@ taglib uri="http://terasoluna.org/functions" prefix="f"%>
+<%@ taglib uri="/WEB-INF/taglibs/mysec.tld" prefix="mysec"%>

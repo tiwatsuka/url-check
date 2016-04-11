@@ -54,7 +54,11 @@
     </bean>
     
     <bean id="redirectCheckFilter" class="org.sample.app.common.RedirectCheckFilter">
-    	<property name="key" value="${redirect.hmacKey}"/>
+    	<constructor-arg>
+	    	<bean class="org.sample.app.common.HmacSignCalculator">
+    			<constructor-arg value="${redirect.hmacKey}"/>
+	    	</bean>
+    	</constructor-arg>
     </bean>
     
     <bean id="authenticationSuccessHandler"

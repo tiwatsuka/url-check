@@ -34,7 +34,7 @@ public class HelloController {
         String formattedDate = dateFormat.format(date);
 
         model.addAttribute("serverTime", formattedDate);
-
+        
         return "welcome/home";
     }
 
